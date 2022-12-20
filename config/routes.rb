@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get '/dashboard', to: "pages#dashboard"
   delete "bookings/:id", to: "pages#destroy", as: :destroy_booking
 
-  resources :rooms, only: [:index, :show] do
-    resources :bookings, only: [:create, :edit, :update]
-  end
 
-    resources :bookings, only: :destroy
+  resources :rooms, only: [:index, :show] do
+    resources :bookings, only: [:create]
+  end
+  resources :bookings, only: [:edit, :update]
 end
